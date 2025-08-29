@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0xni3sn5nnti"
-path.s3tc="res://.godot/imported/SMG_Palette-Colour.png-3be8cb566cb8c1488e30d7a324267c8a.s3tc.ctex"
+path.s3tc="res://.godot/imported/SMG_Palette-Colour.png-45306ad48c5857e7d5101f12a0473563.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Weapons/SMG_Palette-Colour.png"
-dest_files=["res://.godot/imported/SMG_Palette-Colour.png-3be8cb566cb8c1488e30d7a324267c8a.s3tc.ctex"]
+source_file="res://Weapons/SMG/SMG_Palette-Colour.png"
+dest_files=["res://.godot/imported/SMG_Palette-Colour.png-45306ad48c5857e7d5101f12a0473563.s3tc.ctex"]
 
 [params]
 
