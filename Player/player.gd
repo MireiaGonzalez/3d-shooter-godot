@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var fall_multiplier: float = 2.5
 @export var max_hitpoints := 100
 
+@onready var game_over_menu: Control = $GameOverMenu
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var damage_animation_player: AnimationPlayer = $DamageTexture/DamageAnimationPlayer
 
@@ -18,7 +19,7 @@ var hitpoints: int = max_hitpoints:
 		hitpoints = value
 		print(hitpoints)
 		if hitpoints <= 0:
-			get_tree().quit()
+			game_over_menu.game_over()
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
