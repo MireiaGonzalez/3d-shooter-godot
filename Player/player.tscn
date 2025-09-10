@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0c7ile8kivlb"]
+[gd_scene load_steps=14 format=3 uid="uid://d0c7ile8kivlb"]
 
 [ext_resource type="Script" uid="uid://bmgvd6it6ysar" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://cxvwpa8by0w4h" path="res://Player/smooth_camera.gd" id="2_4ntmi"]
 [ext_resource type="Script" uid="uid://wkd87g8naus1" path="res://Player/crosshair.gd" id="3_btcbx"]
 [ext_resource type="PackedScene" uid="uid://c14jqhg6rsce7" path="res://Weapons/Rifle/Rifle.tscn" id="3_fhl08"]
+[ext_resource type="PackedScene" uid="uid://dwpfso1jykyph" path="res://Weapons/SMG/SMG.tscn" id="3_gwnis"]
+[ext_resource type="Script" uid="uid://ch5wor4053tmo" path="res://Player/weapon_handler.gd" id="4_od3ui"]
 [ext_resource type="Texture2D" uid="uid://0oolqlnve4vj" path="res://Player/damage.png" id="5_k53q1"]
 [ext_resource type="PackedScene" uid="uid://crsybrlq7y4nd" path="res://Player/game_over_menu.tscn" id="6_fhl08"]
 
@@ -90,10 +92,10 @@ top_level = true
 cull_mask = 1048573
 script = ExtResource("2_4ntmi")
 
+[node name="Rifle" parent="CameraPivot/SmoothCamera" instance=ExtResource("3_fhl08")]
+
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraPivot/SmoothCamera"]
 remote_path = NodePath("../../../SubViewportContainer/SubViewport/WeaponCamera")
-
-[node name="Rifle" parent="CameraPivot/SmoothCamera" instance=ExtResource("3_fhl08")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -113,6 +115,15 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 cull_mask = 2
 fov = 40.0
+
+[node name="WeaponHandler" type="Node3D" parent="SubViewportContainer/SubViewport/WeaponCamera" node_paths=PackedStringArray("weapon_1", "weapon_2")]
+script = ExtResource("4_od3ui")
+weapon_1 = NodePath("Rifle")
+weapon_2 = NodePath("SMG")
+
+[node name="SMG" parent="SubViewportContainer/SubViewport/WeaponCamera/WeaponHandler" instance=ExtResource("3_gwnis")]
+
+[node name="Rifle" parent="SubViewportContainer/SubViewport/WeaponCamera/WeaponHandler" instance=ExtResource("3_fhl08")]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
