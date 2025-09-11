@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0c7ile8kivlb"]
+[gd_scene load_steps=16 format=3 uid="uid://d0c7ile8kivlb"]
 
 [ext_resource type="Script" uid="uid://bmgvd6it6ysar" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://cxvwpa8by0w4h" path="res://Player/smooth_camera.gd" id="2_4ntmi"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://0oolqlnve4vj" path="res://Player/damage.png" id="5_k53q1"]
 [ext_resource type="PackedScene" uid="uid://txejeflm57y5" path="res://Weapons/Pistol/Pistol.tscn" id="6_00tjw"]
 [ext_resource type="PackedScene" uid="uid://crsybrlq7y4nd" path="res://Player/game_over_menu.tscn" id="6_fhl08"]
+[ext_resource type="Script" uid="uid://cte3jh3wiofro" path="res://Player/ammo_handler.gd" id="7_x3vf3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hvfyp"]
 
@@ -121,11 +122,19 @@ weapon_1 = NodePath("Pistol")
 weapon_2 = NodePath("Rifle")
 weapon_3 = NodePath("SMG")
 
-[node name="Pistol" parent="SubViewportContainer/SubViewport/WeaponCamera/WeaponHandler" instance=ExtResource("6_00tjw")]
+[node name="Pistol" parent="SubViewportContainer/SubViewport/WeaponCamera/WeaponHandler" node_paths=PackedStringArray("ammo_handler") instance=ExtResource("6_00tjw")]
+ammo_handler = NodePath("../../AmmoHandler")
+ammo_type = 2
 
-[node name="Rifle" parent="SubViewportContainer/SubViewport/WeaponCamera/WeaponHandler" instance=ExtResource("3_fhl08")]
+[node name="Rifle" parent="SubViewportContainer/SubViewport/WeaponCamera/WeaponHandler" node_paths=PackedStringArray("ammo_handler") instance=ExtResource("3_fhl08")]
+ammo_handler = NodePath("../../AmmoHandler")
 
-[node name="SMG" parent="SubViewportContainer/SubViewport/WeaponCamera/WeaponHandler" instance=ExtResource("3_gwnis")]
+[node name="SMG" parent="SubViewportContainer/SubViewport/WeaponCamera/WeaponHandler" node_paths=PackedStringArray("ammo_handler") instance=ExtResource("3_gwnis")]
+ammo_handler = NodePath("../../AmmoHandler")
+ammo_type = 1
+
+[node name="AmmoHandler" type="Node" parent="SubViewportContainer/SubViewport/WeaponCamera"]
+script = ExtResource("7_x3vf3")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
