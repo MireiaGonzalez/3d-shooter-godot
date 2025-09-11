@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctqqswofud704"]
+
+[ext_resource type="PackedScene" uid="uid://brel075yj0lra" path="res://Pickups/pickup.tscn" id="1_pgr1t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q3vy"]
+albedo_color = Color(1, 0.6, 0.176471, 1)
+
+[node name="PistolBulletPickup" instance=ExtResource("1_pgr1t")]
+ammo_type = 2
+amount = 60
+
+[node name="AmmoMesh" parent="." index="0"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.5, 0.5, -0.707107, 0.5, 0.5, 0.707107, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_3q3vy")

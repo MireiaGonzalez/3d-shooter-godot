@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ng6t3iqkwq7h"]
+[gd_scene load_steps=12 format=3 uid="uid://ng6t3iqkwq7h"]
 
 [ext_resource type="PackedScene" uid="uid://d0c7ile8kivlb" path="res://Player/player.tscn" id="1_gilti"]
 [ext_resource type="Material" uid="uid://cds71n2e6wgke" path="res://Levels/Materials/GrayMaterial.tres" id="1_r8rh2"]
 [ext_resource type="Material" uid="uid://dljsis47qwgui" path="res://Levels/Materials/OrangeMaterial.tres" id="3_yawbu"]
 [ext_resource type="PackedScene" uid="uid://bdd72wbx5b0pq" path="res://Enemy/enemy.tscn" id="4_yawbu"]
-[ext_resource type="PackedScene" uid="uid://brel075yj0lra" path="res://Pickups/pickup.tscn" id="5_bpqh8"]
+[ext_resource type="PackedScene" uid="uid://bufj34r0uc608" path="res://Pickups/bullet_pickup.tscn" id="6_xw3p7"]
+[ext_resource type="PackedScene" uid="uid://da8l6w5sy1qyn" path="res://Pickups/small_bullet_pickup.tscn" id="7_rveyg"]
+[ext_resource type="PackedScene" uid="uid://ctqqswofud704" path="res://Pickups/pistol_bullet_pickup.tscn" id="8_1u67n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2b7vw"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -324,5 +326,22 @@ material = ExtResource("1_r8rh2")
 [node name="Enemy" parent="." instance=ExtResource("4_yawbu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.813229, 1, -25.0306)
 
-[node name="Pickup" parent="." instance=ExtResource("5_bpqh8")]
+[node name="Pickups" type="Node3D" parent="."]
+
+[node name="BulletPickup" parent="Pickups" instance=ExtResource("6_xw3p7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5)
+
+[node name="SmallBulletPickup" parent="Pickups" instance=ExtResource("7_rveyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -5)
+
+[node name="PistolBulletPickup" parent="Pickups" instance=ExtResource("8_1u67n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -5)
+
+[node name="BulletPickup2" parent="Pickups" instance=ExtResource("6_xw3p7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7)
+
+[node name="SmallBulletPickup2" parent="Pickups" instance=ExtResource("7_rveyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 7)
+
+[node name="PistolBulletPickup2" parent="Pickups" instance=ExtResource("8_1u67n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 7)

@@ -5,13 +5,13 @@ class_name AmmoHandler extends Node
 enum ammo_type {
 	BULLET,
 	SMALL_BULLET,
-	PISTOL_BULLETS
+	PISTOL_BULLET
 }
 
 var ammo_storage := {
 	ammo_type.BULLET: 10,
 	ammo_type.SMALL_BULLET: 60,
-	ammo_type.PISTOL_BULLETS: 100
+	ammo_type.PISTOL_BULLET: 100
 }
 
 func has_ammo(bullet_type: ammo_type) -> bool:
