@@ -1,7 +1,6 @@
 class_name Enemy extends CharacterBody3D
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
 
 @export var attack_range := 1.5
 @export var max_hitpoints := 100
@@ -58,5 +57,4 @@ func look_at_target(direction: Vector3) -> void:
 	look_at(global_position + adjusted_direction, Vector3.UP, true)
 
 func attack() -> void:
-	print("Enemy Attack!")
 	player.hitpoints -= attack_damage
