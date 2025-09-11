@@ -13,7 +13,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("weapon_2"):
 		equip(weapon_2)
 	if event.is_action_pressed("weapon_3"):
-		equip(weapon_2)
+		equip(weapon_3)
 	if event.is_action_pressed("next_weapon"):
 		next_weapon()
 	if event.is_action_pressed("previous_weapon"):
@@ -24,6 +24,7 @@ func equip(active_weapon: Node3D) -> void:
 		if child == active_weapon:
 			child.visible = true
 			child.set_process(true)
+			child.ammo_handler.update_ammo_label(child.ammo_type)
 		else:
 			child.visible = false
 			child.set_process(false)
