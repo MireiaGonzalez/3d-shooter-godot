@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var game_over_menu: Control = $GameOverMenu
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var damage_animation_player: AnimationPlayer = $DamageTexture/DamageAnimationPlayer
+@onready var ammo_handler: AmmoHandler = %AmmoHandler
 
 const SPEED = 5.0
 
