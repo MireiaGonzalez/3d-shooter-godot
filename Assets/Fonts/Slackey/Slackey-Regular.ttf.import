@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bgfvsl88dv217"
-path="res://.godot/imported/Slackey-Regular.ttf-60045104ed3d8bd44cdb5be19303b7d4.fontdata"
+path="res://.godot/imported/Slackey-Regular.ttf-b459d2ff535a1473b28bb13b901c3c36.fontdata"
 
 [deps]
 
-source_file="res://Assets/Slackey/Slackey-Regular.ttf"
-dest_files=["res://.godot/imported/Slackey-Regular.ttf-60045104ed3d8bd44cdb5be19303b7d4.fontdata"]
+source_file="res://Assets/Fonts/Slackey/Slackey-Regular.ttf"
+dest_files=["res://.godot/imported/Slackey-Regular.ttf-b459d2ff535a1473b28bb13b901c3c36.fontdata"]
 
 [params]
 

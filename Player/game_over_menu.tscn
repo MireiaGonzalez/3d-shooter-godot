@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://crsybrlq7y4nd"]
 
-[ext_resource type="FontFile" uid="uid://bgfvsl88dv217" path="res://Assets/Slackey/Slackey-Regular.ttf" id="1_6p4a0"]
+[ext_resource type="FontFile" uid="uid://bgfvsl88dv217" path="res://Assets/Fonts/Slackey/Slackey-Regular.ttf" id="1_6p4a0"]
 [ext_resource type="Script" uid="uid://by7y280ydt4bd" path="res://Player/game_over_menu.gd" id="2_kxqsi"]
 [ext_resource type="Shader" uid="uid://d25gjed5abc3e" path="res://Player/game_over_menu.tres" id="3_1bqx8"]
 

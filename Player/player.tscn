@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://txejeflm57y5" path="res://Weapons/Pistol/Pistol.tscn" id="6_00tjw"]
 [ext_resource type="PackedScene" uid="uid://crsybrlq7y4nd" path="res://Player/game_over_menu.tscn" id="6_fhl08"]
 [ext_resource type="Script" uid="uid://cte3jh3wiofro" path="res://Player/ammo_handler.gd" id="7_x3vf3"]
-[ext_resource type="FontFile" uid="uid://bgfvsl88dv217" path="res://Assets/Slackey/Slackey-Regular.ttf" id="10_apopc"]
+[ext_resource type="FontFile" uid="uid://bgfvsl88dv217" path="res://Assets/Fonts/Slackey/Slackey-Regular.ttf" id="10_apopc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hvfyp"]
 
