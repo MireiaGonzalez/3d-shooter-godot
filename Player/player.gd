@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 @export var jump_height: float = 1.0
 @export var fall_multiplier: float = 2.5

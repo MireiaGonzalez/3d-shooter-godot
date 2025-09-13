@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl4hnqv8687od"]
+[gd_scene load_steps=14 format=3 uid="uid://cl4hnqv8687od"]
 
 [ext_resource type="Material" uid="uid://cds71n2e6wgke" path="res://Levels/Materials/GrayMaterial.tres" id="1_8xii8"]
-[ext_resource type="Texture2D" uid="uid://7dxjkh1n1nac" path="res://Levels/level-floorplan.png" id="2_k0okc"]
 [ext_resource type="PackedScene" uid="uid://d0c7ile8kivlb" path="res://Player/player.tscn" id="3_6x3q2"]
 [ext_resource type="PackedScene" uid="uid://bdd72wbx5b0pq" path="res://Enemy/enemy.tscn" id="4_13urm"]
 [ext_resource type="PackedScene" uid="uid://ctqqswofud704" path="res://Pickups/pistol_bullet_pickup.tscn" id="5_wcg7u"]
 [ext_resource type="PackedScene" uid="uid://da8l6w5sy1qyn" path="res://Pickups/small_bullet_pickup.tscn" id="6_2clls"]
 [ext_resource type="PackedScene" uid="uid://bufj34r0uc608" path="res://Pickups/bullet_pickup.tscn" id="7_3d006"]
+[ext_resource type="PackedScene" uid="uid://ctc0loenjh0g" path="res://Hazards/lava.tscn" id="8_2clls"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xii8"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -27,6 +27,13 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Arr
 agent_radius = 1.0
 filter_ledge_spans = true
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_2clls"]
+resource_local_to_scene = true
+size = Vector2(20, 14)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2clls"]
+points = PackedVector3Array(-10, 0, -7, -10, 0, 7, 10, 0, -7, 10, 0, 7)
+
 [node name="MainLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -34,11 +41,6 @@ environment = SubResource("Environment_6x3q2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(2.4, 0, -7.10543e-15, 0, 2.4, 0, 7.10543e-15, 0, 2.4, 0, 0.1, 0)
-axis = 1
-texture = ExtResource("2_k0okc")
 
 [node name="Player" parent="." instance=ExtResource("3_6x3q2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 13)
@@ -214,6 +216,12 @@ material_override = ExtResource("1_8xii8")
 flip_faces = true
 size = Vector3(13.4, 6, 10.6)
 
+[node name="LavaPit" type="CSGBox3D" parent="NavigationRegion3D/LevelContents/Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.95, -2, -17.15)
+material_override = ExtResource("1_8xii8")
+flip_faces = true
+size = Vector3(5.5, 1, 4)
+
 [node name="Room4" type="CSGBox3D" parent="NavigationRegion3D/LevelContents/Room/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.65, 1.5, -22.4)
 material_override = ExtResource("1_8xii8")
@@ -246,3 +254,22 @@ material_override = ExtResource("1_8xii8")
 use_collision = true
 polygon = PackedVector2Array(0, 0, 8, 3, 8, 0)
 depth = 10.0
+
+[node name="LavaPools" type="Node3D" parent="."]
+
+[node name="Lava" parent="LavaPools" instance=ExtResource("8_2clls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, -9)
+
+[node name="MeshInstance3D" parent="LavaPools/Lava" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, -1, 0)
+mesh = SubResource("PlaneMesh_2clls")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaPools/Lava"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, -1, 0)
+shape = SubResource("ConvexPolygonShape3D_2clls")
+
+[node name="OmniLight3D" parent="LavaPools/Lava" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 1)
+omni_range = 25.0
+
+[editable path="LavaPools/Lava"]

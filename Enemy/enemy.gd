@@ -21,7 +21,7 @@ var hitpoints: int = max_hitpoints:
 		provoked = true
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("player") as Player
 
 func _process(_delta: float) -> void:
 	if provoked:
