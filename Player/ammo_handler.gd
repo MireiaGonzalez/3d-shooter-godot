@@ -1,6 +1,7 @@
 class_name AmmoHandler extends Node
 
 @export var ammo_label: Label
+@export var weapon_handler: Node3D
 
 enum ammo_type {
 	BULLET,
@@ -20,10 +21,10 @@ func has_ammo(bullet_type: ammo_type) -> bool:
 func use_ammo(bullet_type: ammo_type) -> void:
 	if has_ammo(bullet_type):
 		ammo_storage[bullet_type] -= 1
-	update_ammo_label(bullet_type)
+		update_ammo_label(weapon_handler.get_weapon_ammo())
 
 func update_ammo_label(bullet_type: ammo_type) -> void:
-	ammo_label.text = str(ammo_storage[bullet_type])
+	ammo_label.text = str(ammo_storage[weapon_handler.get_weapon_ammo()])
 
 func add_ammo(bullet_type: ammo_type, amount: int) -> void:
 	ammo_storage[bullet_type] += amount
